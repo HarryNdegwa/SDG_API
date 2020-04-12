@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Log</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 style="text-decoration: underline; text-align: center;" class="mb-3">COVID-19 Estimator Logs</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto" style="word-spacing: 30px; background-color: aliceblue; height: 90vh; overflow-y:scroll;">
+                {% for log in logs %}
+                <p>{{log}}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
