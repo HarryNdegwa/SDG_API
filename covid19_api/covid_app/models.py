@@ -17,26 +17,3 @@ class Data(models.Model):
         return str(self.region_name)
 
 
-class Main(models.Model):
-    data = models.OneToOneField(Data,on_delete = models.CASCADE,null=True)
-    currently_infected = models.IntegerField(default=0)
-    infections_by_requested_time = models.IntegerField(default=0)
-    severe_cases_by_requested_time = models.IntegerField(default=0)
-    hospital_beds_by_requested_time = models.IntegerField(default=0)
-    cases_for_icu_by_requested_time = models.IntegerField(default=0)
-    cases_for_ventilators_by_requested_time = models.IntegerField(default=0)
-    dollars_in_flight = models.DecimalField(max_digits=100,decimal_places=2,null=True)
-
-
-    class Meta:
-        abstract = True
-
-
-class Impact(Main):
-    def __str__(self):
-        return f"{self.data} impact"
-
-
-class SevereImpact(Main):
-    def __str__(self):
-        return f"{self.data} severe impact"
